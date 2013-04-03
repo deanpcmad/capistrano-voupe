@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["dean@deanperry.net"]
   gem.description   = %q{Capistrano configs for Voupe applications}
   gem.summary       = %q{Voupe Capistrano Configs}
-  gem.homepage      = ""
+  gem.homepage      = "http://voupe.com"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
