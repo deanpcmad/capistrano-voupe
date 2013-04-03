@@ -1,29 +1,27 @@
-# Capistrano::Voupe
+# Capistrano Voupe
 
-TODO: Write a gem description
+Capistrano scripts/configs for use in Voupe applications.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this to the development group in the Gemfile.
 
-    gem 'capistrano-voupe'
+		gem "capistrano-voupe", :git => "git@codebasehq.com:voupe/tools-utilities/capistrano-voupe.git"
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install capistrano-voupe
 
 ## Usage
 
-TODO: Write usage instructions here
+In `config/deploy.rb` add the required files.
 
-## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+### Assets
+
+		require "capistrano-voupe/assets"
+
+### Rails Config
+
+		require "capistrano-voupe/rails_config"
+
+### Delayed Job
+
+		require "capistrano-voupe/delayed_job"
