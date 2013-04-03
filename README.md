@@ -6,7 +6,7 @@ Capistrano scripts/configs for use in Voupe applications.
 
 Add this to the development group in the Gemfile.
 
-		gem "capistrano-voupe", :git => "git@codebasehq.com:voupe/tools-utilities/capistrano-voupe.git"
+	gem "capistrano-voupe", :git => "git@codebasehq.com:voupe/tools-utilities/capistrano-voupe.git"
 
 
 ## Usage
@@ -16,12 +16,12 @@ In `config/deploy.rb` add the required files.
 
 ### Assets
 
-		require "capistrano-voupe/assets"
+	require "capistrano-voupe/assets"
 
 ### Rails Config
 
-		require "capistrano-voupe/rails_config"
+	require "capistrano-voupe/rails_config"
 
 ### Delayed Job
 
-		require "capistrano-voupe/delayed_job"
+	require "capistrano-voupe/delayed_job"
