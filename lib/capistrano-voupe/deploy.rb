@@ -4,7 +4,6 @@ Capistrano::Configuration.instance(:true).load do
 	require "capistrano-voupe/check"
 	require "capistrano-voupe/nginx"
 	require "capistrano-voupe/unicorn"
-	require "capistrano-voupe/assets"
 	require "capistrano-voupe/maintenance"
 	require "capistrano-voupe/mysql"
 	require "capistrano-voupe/log_deployment"
@@ -33,43 +32,22 @@ Capistrano::Configuration.instance(:true).load do
 		fetch(:deploy_to, nil) || "/opt/apps/#{fetch(:application)}"
 	end
 
-	## Set the `current_revision` 
-	# set(:current_revision)  { capture("cd #{deploy_to} && git log --pretty=%H -n 1", :except => { :no_release => true }).chomp }
-
-
-
-	# namespace :deploy do
-	#   desc "Deploy the MFer"
-	#   task :default do
-	#     update
-	#     restart
-	#     cleanup
-	#   end
-	# end
-
-
-
-
-
 
 	## ==================================================================
 	## init
 	## ==================================================================
 	desc 'Restart the whole remote application'
 	task :restart, :roles => :web do
-		# warn "[DEPRECATED] `restart` isn't used anymore. `deploy:restart` should be used instead."
 		unicorn.restart
 	end
 
 	desc 'Stop the whole remote application'
 	task :stop, :roles => :web do
-		# warn "[DEPRECATED] `stop` isn't used anymore. `deploy:stop` should be used instead."
 		unicorn.stop
 	end
 
 	desc 'Start the whole remote application'
 	task :start, :roles => :web do
-		# warn "[DEPRECATED] `start` isn't used anymore. `deploy:start` should be used instead."
 		unicorn.start
 	end
 	
