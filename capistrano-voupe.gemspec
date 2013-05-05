@@ -16,4 +16,11 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  # specify any dependencies here
+  gem.add_runtime_dependency "capistrano"
+  gem.add_runtime_dependency "unicorn"
+  gem.add_runtime_dependency "whenever"
+  gem.add_runtime_dependency "http"
+  gem.add_runtime_dependency "httparty"
 end

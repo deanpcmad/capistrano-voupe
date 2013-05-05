@@ -1,6 +1,6 @@
-Capistrano::Configuration.instance.load do
+Capistrano::Configuration.instance(:true).load do
 
-	# require "base"
+	require "capistrano-voupe/base"
 	require "capistrano-voupe/check"
 	require "capistrano-voupe/nginx"
 	require "capistrano-voupe/unicorn"
@@ -18,6 +18,9 @@ Capistrano::Configuration.instance.load do
 	set :deploy_via, :remote_cache
 	set :use_sudo, false
 	set :keep_releases, 5
+
+	# stops the public/images, etc not found errors
+	set :normalize_asset_timestamps, false
 	
 	## deploying to production is the default
 	set :rails_env, fetch(:rails_env, nil) || "production"
