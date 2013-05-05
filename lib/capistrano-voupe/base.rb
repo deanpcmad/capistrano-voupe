@@ -1,58 +1,23 @@
-Capistrano::Configuration.instance.load do
+def template(from, to)
+  erb = File.read(File.expand_path("../templates/#{from}", __FILE__))
+  put ERB.new(erb).result(binding), to
+end
 
-	# require "gonzo/deploy/base"
-	# require "gonzo/deploy/check"
-	# require "gonzo/deploy/nginx"
-	# require "gonzo/deploy/unicorn"
-	# require "gonzo/deploy/assets"
-	# require "gonzo/deploy/maintenance"
-	# require "gonzo/deploy/mysql"
-	# require "gonzo/deploy/log_deployment"
+def set_default(name, *args, &block)
+  set(name, *args, &block) unless exists?(name)
+end
 
-	default_run_options[:pty] = true
-	ssh_options[:forward_agent] = true
-
-	set :scm, "git"
-
-	set :user, "deploy"
-	set :deploy_via, :remote_cache
-	set :use_sudo, false
-	set :keep_releases, 5
-	
-	## deploying to production is the default
-	set :rails_env, fetch(:rails_env, nil) || "production"
-	set :environment, fetch(:environment, nil) || "production"
-	set :deploy_to, "/opt/apps/#{application}"
-
-	## return the deployment path
-	## if :deploy_to isn't set in deploy.rb use the default
-	def deploy_to
-		fetch(:deploy_to, nil) || "/opt/apps/#{fetch(:application)}"
-	end
-
-	## Set the `current_revision` 
-	# set(:current_revision)  { capture("cd #{deploy_to} && git log --pretty=%H -n 1", :except => { :no_release => true }).chomp }
-
-
-	## ==================================================================
-	## init
-	## ==================================================================
-	desc 'Restart the whole remote application'
-	task :restart, :roles => :web do
-		warn "[DEPRECATED] `restart` isn't used anymore. `deploy:restart` should be used instead."
-		# unicorn.restart
-	end
-
-	desc 'Stop the whole remote application'
-	task :stop, :roles => :web do
-		warn "[DEPRECATED] `stop` isn't used anymore. `deploy:stop` should be used instead."
-		# unicorn.stop
-	end
-
-	desc 'Start the whole remote application'
-	task :start, :roles => :web do
-		warn "[DEPRECATED] `start` isn't used anymore. `deploy:start` should be used instead."
-		# unicorn.start
-	end
-	
+# Colourful outputs!
+class String
+	def blink; "\e[5m#{self}\e[0m"; end
+	def reverse; "\e[7m#{self}\e[0m"; end
+	def concealed; "\e[8m#{self}\e[0m"; end
+	def black; "\e[30m#{self}\e[0m"; end
+	def red; "\e[31m#{self}\e[0m"; end
+	def green; "\e[32m#{self}\e[0m"; end
+  def yellow; "\e[33m#{self}\e[0m"; end
+  def blue; "\e[34m#{self}\e[0m"; end
+  def magenta; "\e[35m#{self}\e[0m"; end
+  def cyan; "\e[36m#{self}\e[0m"; end
+  def white; "\e[37m#{self}\e[0m"; end
 end
