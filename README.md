@@ -13,6 +13,9 @@ Add this to the development group in the Gemfile.
 
 In `config/deploy.rb` add the required files.
 
+### Base
+
+	require "capistrano-voupe/deploy"
 
 ### Assets
 
