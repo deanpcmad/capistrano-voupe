@@ -13,7 +13,7 @@ Capistrano::Configuration.instance(:true).load do
 
 	set :scm, "git"
 
-	set :user, "deploy"
+	set :user, fetch(:user, nil) || "deploy"
 	set :deploy_via, :remote_cache
 	set :use_sudo, false
 	set :keep_releases, 5
@@ -24,13 +24,7 @@ Capistrano::Configuration.instance(:true).load do
 	## deploying to production is the default
 	set :rails_env, fetch(:rails_env, nil) || "production"
 	set :environment, fetch(:environment, nil) || "production"
-	set :deploy_to, "/opt/apps/#{application}"
-
-	## return the deployment path
-	## if :deploy_to isn't set in deploy.rb use the default
-	def deploy_to
-		fetch(:deploy_to, nil) || "/opt/apps/#{fetch(:application)}"
-	end
+	set :deploy_to, fetch(:deploy_to, nil) || "/opt/apps/#{application}"
 
 
 	## ==================================================================
