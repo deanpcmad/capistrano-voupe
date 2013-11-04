@@ -16,7 +16,7 @@ Capistrano::Configuration.instance(:true).load do
 	set :user, fetch(:user, nil) || "deploy"
 	set :deploy_via, :remote_cache
 	set :use_sudo, false
-	set :keep_releases, 5
+	# set :keep_releases, 5
 
 	# stops the public/images, etc not found errors
 	set :normalize_asset_timestamps, false
