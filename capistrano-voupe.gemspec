@@ -19,6 +19,8 @@ Gem::Specification.new do |gem|
 
   # specify any dependencies here
   gem.add_runtime_dependency "capistrano", "~> 3.0.1"
+  gem.add_runtime_dependency "capistrano-bundler"
+  gem.add_runtime_dependency "capistrano-rails"
   gem.add_runtime_dependency "unicorn", "~> 4.6.3"
   gem.add_runtime_dependency "whenever", "~> 0.8.4"
   gem.add_runtime_dependency "http", "~> 0.5.0"
