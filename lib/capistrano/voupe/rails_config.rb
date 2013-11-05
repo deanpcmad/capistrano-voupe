@@ -1,0 +1,1 @@
+load File.expand_path("../../tasks/rails_config.rake", __FILE__)

@@ -1,11 +1,10 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'capistrano-voupe/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "capistrano-voupe"
-  gem.version       = Capistrano::Voupe::VERSION
+  gem.version       = "0.0.1"
   gem.authors       = ["Dean Perry"]
   gem.email         = ["dean@voupe.com"]
   gem.description   = %q{Capistrano configs for Voupe applications}

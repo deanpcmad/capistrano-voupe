@@ -1,3 +1,5 @@
+load File.expand_path("../set_rails_env.rake", __FILE__)
+
 namespace :check do
   desc "Make sure local git is in sync with remote."
   task :revision, roles: :web do

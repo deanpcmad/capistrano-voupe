@@ -1,7 +1,18 @@
+# def template(from, to)
+#   erb = File.read(File.expand_path("../../templates/#{from}", __FILE__))
+#   put ERB.new(erb).result(binding), to
+# end
+
 def template(from, to)
-  erb = File.read(File.expand_path("../templates/#{from}", __FILE__))
-  put ERB.new(erb).result(binding), to
+  puts "Template #{from} to #{to}"
+  template = File.read(File.expand_path("../../templates/#{from}", __FILE__))
+  # system "touch #{to}"
+  File.open(to, "w+") do |f|
+    f.write(ERB.new(template).result(binding))
+    puts I18n.t(:written_file, scope: :capistrano, file: to)
+  end
 end
+
 
 def set_default(name, *args, &block)
   set(name, *args, &block) unless exists?(name)

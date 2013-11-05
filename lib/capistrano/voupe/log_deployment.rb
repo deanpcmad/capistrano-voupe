@@ -1,0 +1,1 @@
+load File.expand_path("../../tasks/log_deployment.rake", __FILE__)

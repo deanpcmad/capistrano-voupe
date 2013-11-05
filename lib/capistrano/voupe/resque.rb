@@ -1,0 +1,1 @@
+load File.expand_path("../../tasks/resque.rake", __FILE__)
