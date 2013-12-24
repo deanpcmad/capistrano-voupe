@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.name          = "capistrano-voupe"
   gem.version       = Capistrano::Voupe::VERSION
   gem.authors       = ["Dean Perry"]
-  gem.email         = ["dean@deanperry.net"]
+  gem.email         = ["dean@voupe.com"]
   gem.description   = %q{Capistrano configs for Voupe applications}
   gem.summary       = %q{Voupe Capistrano Configs}
   gem.homepage      = "http://voupe.com"
