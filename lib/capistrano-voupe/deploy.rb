@@ -6,7 +6,11 @@ Capistrano::Configuration.instance(:true).load do
 	require "capistrano-voupe/unicorn"
 	require "capistrano-voupe/maintenance"
 	require "capistrano-voupe/mysql"
-	require "capistrano-voupe/log_deployment"
+    
+    # only if the dashboard_site_uuid is present
+    unless fetch(:dashboard_site_uuid, nil) == nil
+	    require "capistrano-voupe/log_deployment"
+    end
 
 	default_run_options[:pty] = true
 	ssh_options[:forward_agent] = true
