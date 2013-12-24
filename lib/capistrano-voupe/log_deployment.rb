@@ -2,7 +2,7 @@ require "httparty"
 
 Capistrano::Configuration.instance(:must_exist).load do
 
-  after "deploy:create_symlink", "voupe:log_deployment"
+  #after "deploy:create_symlink", "voupe:log_deployment"
 
   namespace :voupe do
     desc "Logs the deployment to the Dashboard"
