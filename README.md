@@ -6,7 +6,7 @@ Capistrano scripts/configs for use in Voupe applications.
 
 Add this to the development group in the Gemfile.
 
-	gem "capistrano-voupe", :git => "https://github.com/voupe/capistrano-voupe.git", :require => false
+	gem "capistrano-voupe", github: "voupe/capistrano-voupe", require: false
 
 
 ## Usage
